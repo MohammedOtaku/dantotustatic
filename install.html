@@ -83,99 +83,93 @@
           <div class ="">
 
 
-<!DOCTYPE html>
+          <!DOCTYPE html>
 <html>
 <head>
-    <title>Download Latest</title>
+    <title>Download Latest Release</title>
 </head>
 <body>
     <!-- Button to trigger download -->
-    <button id="downloadButton">Download Latest</button>
+    <button id="downloadButton">Download Latest Release</button>
 
     <script>
+        var REPO = "rebelonion/Dantotsu";
+        var API_URL = "https://api.github.com/repos/" + REPO + "/releases/latest";
 
-    var REPO = "rebelonion/Dantotsu";
+        function downloadFile(url, filename) {
+            var link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
 
-    var API_URL = "https://api.github.com/repos/" + REPO + "/releases/latest";
+        function downloadLatestRelease() {
+            fetch(API_URL)
+                .then(response => response.json())
+                .then(data => {
+                    var asset = data.assets.find(asset => asset.name === 'app-release.apk');
+                    if (asset) {
+                        downloadFile(asset.browser_download_url, 'app-release.apk');
+                    } else {
+                        console.error('Asset app-release.apk not found in the latest release');
+                    }
+                })
+                .catch(console.error);
+        }
 
-    function downloadFile(url, filename) {
-        var link = document.createElement('a');
-        link.href = url;
-        link.download = filename;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-
-    function downloadLatestRelease() {
-        fetch(API_URL)
-            .then(response => response.json())
-            .then(data => {
-                var asset = data.assets.find(asset => asset.name === 'app-release.apk');
-
-                // If the asset is found, download it
-                if (asset) {
-                    downloadFile(asset.browser_download_url, 'app-release.apk');
-                } else {
-                    console.error('Asset app-release.apk not found in the latest release');
-                }
-            })
-            .catch(console.error);
-    }
-
-    document.getElementById('downloadButton').addEventListener('click', downloadLatestRelease);
+        document.getElementById('downloadButton').addEventListener('click', downloadLatestRelease);
     </script>
 </body>
 </html>
+
             </div>
 
      <!-- view download buttonn -->
      <div class ="">
-       
-<!DOCTYPE html>
+       <!DOCTYPE html>
 <html>
 <head>
-    <title>Download nightly</title>
+    <title>Download Latest Release</title>
 </head>
 <body>
     <!-- Button to trigger download -->
-    <button id="downloadButton">Download Latest debug</button>
+    <button id="downloadButton">Download Latest Release</button>
 
     <script>
+        var REPO = "rebelonion/Dantotsu";
+        var API_URL = "https://api.github.com/repos/" + REPO + "/releases/latest";
 
-    var REPO = "rebelonion/Dantotsu";
+        function downloadFile(url, filename) {
+            var link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
 
-    var API_URL = "https://api.github.com/repos/" + REPO + "/releases/latest";
+        function downloadLatestRelease() {
+            fetch(API_URL)
+                .then(response => response.json())
+                .then(data => {
+                    var asset = data.assets.find(asset => asset.name === 'app-release.apk');
+                    if (asset) {
+                        downloadFile(asset.browser_download_url, 'app-release.apk');
+                    } else {
+                        console.error('Asset app-release.apk not found in the latest release');
+                    }
+                })
+                .catch(console.error);
+        }
 
-    function downloadFile(url, filename) {
-        var link = document.createElement('a');
-        link.href = url;
-        link.download = filename;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-
-    function downloadLatestRelease() {
-        fetch(API_URL)
-            .then(response => response.json())
-            .then(data => {
-                var asset = data.assets.find(asset => asset.name === 'app-debug.apk');
-
-                // If the asset is found, download it
-                if (asset) {
-                    downloadFile(asset.browser_download_url, 'app-debug.apk');
-                } else {
-                    console.error('Asset app-debug.apk not found in the latest release');
-                }
-            })
-            .catch(console.error);
-    }
-
-    document.getElementById('downloadButton').addEventListener('click', downloadLatestDebug);
+        document.getElementById('downloadButton').addEventListener('click', downloadLatestRelease);
     </script>
 </body>
-</html> 
+</html>
+
+
 </div>
 
           </div>
