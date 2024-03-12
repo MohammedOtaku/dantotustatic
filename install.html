@@ -140,63 +140,7 @@
 
 
      <!-- view download buttonn -->
-     <!DOCTYPE html>
-<html>
-<head>
-    <title>Download Latest Release</title>
-    <style>
-        .download-button {
-            background-color: #6B46C1;
-            color: white;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-
-        .download-button:hover {
-            background-color: #805AD5;
-        }
-    </style>
-</head>
-<body>
-    <!-- Button to trigger download -->
-    <button id="downloadButton" class="download-button">Download Latest Release</button>
-
-    <script>
-        var REPO = "rebelonion/Dantotsu";
-        var API_URL = "https://api.github.com/repos/" + REPO + "/releases/latest";
-
-        function downloadFile(url, filename) {
-            var link = document.createElement('a');
-            link.href = url;
-            link.download = filename;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-
-        function downloadLatestRelease() {
-            fetch(API_URL)
-                .then(response => response.json())
-                .then(data => {
-                    var asset = data.assets.find(asset => asset.name === 'app-release.apk');
-
-                    // If the asset is found, download it
-                    if (asset) {
-                        downloadFile(asset.browser_download_url, 'app-release.apk');
-                    } else {
-                        console.error('Asset app-release.apk not found in the latest release');
-                    }
-                })
-                .catch(console.error);
-        }
-
-        document.getElementById('downloadButton').addEventListener('click', downloadLatestRelease);
-    </script>
-</body>
-</html>
+     
 
           </div>
    
