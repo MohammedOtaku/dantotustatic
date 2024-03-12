@@ -55,13 +55,21 @@
             <button class="language-button" data-lang="es">Spanish</button>
           </ul>
         </div> -->
-        
+        <a href="https://www.buymeacoffee.com/rebelonion" class="mr-4 transition-colors hover:text-purple-500"><i
+            class="fa-solid fa-mug-saucer"></i></a>
+        <a href="https://discord.com/invite/4HPZ5nAWwM" class="mr-4 transition-colors hover:text-purple-500"><i
+            class="fa-brands fa-discord"></i></a>
+        <a href="https://t.me/+gzBCQExtLQo1YTNh" class="mr-4 transition-colors hover:text-purple-500"><i
+            class="fa-brands fa-telegram"></i></a>
+        <a href="https://github.com/rebelonion/Dantotsu" class="mr-4 transition-colors hover:text-purple-500"><i
+            class="fa-brands fa-github"></i></a>
       </div>
     </div>
   </nav>
 
   <!-- HERO -->
   <section id="hero" class="text-white py-20 h-screen shadow-lg relative"
+
     style="background-image: url('images/ei_1698849603612-removebg-preview-1.png'); background-size: cover; background-position: center;">
     <div class="container h-full mx-auto flex flex-col justify-center items-center relative z-10">
       <div class="text-center">
@@ -69,15 +77,14 @@
         &nbsp;
  <p class="text-sm" data-lang="en">Join for support! <a href="https://discord.com/invite/4HPZ5nAWwM"><b>Discord<b></a> or <a href="https://t.me/+gzBCQExtLQo1YTNh"><b>Telegram</b></a>
 
-
         <div class="block md:flex justify-center items-center mt-8 space-x-4 w-auto">
 
           
           <!-- download button -->
-          <div class ="">
+        
+          <div class = "mb-8">
 
-
-          <!DOCTYPE html>
+            <!DOCTYPE html>
 <html>
 <head>
     <title>Download Latest Release</title>
@@ -89,7 +96,8 @@
     <script>
         var REPO = "rebelonion/Dantotsu";
         var API_URL = "https://api.github.com/repos/" + REPO + "/releases/latest";
-
+ 
+ 
         function downloadFile(url, filename) {
             var link = document.createElement('a');
             link.href = url;
@@ -98,7 +106,8 @@
             link.click();
             document.body.removeChild(link);
         }
-
+ 
+ 
         function downloadLatestRelease() {
             fetch(API_URL)
                 .then(response => response.json())
@@ -112,59 +121,14 @@
                 })
                 .catch(console.error);
         }
-
+ 
+ 
         document.getElementById('downloadButton').addEventListener('click', downloadLatestRelease);
+          <a href="https://github.com/rebelonion/Dantotsu/releases/download/v2.2.0/app-release.apk"
     </script>
 </body>
 </html>
-
-            </div>
-
-     <!-- view download buttonn -->
-     <div class ="">
-       <!DOCTYPE html>
-<html>
-<head>
-    <title>Download Latest Release</title>
-</head>
-<body>
-    <!-- Button to trigger download -->
-    <button id="downloadButton">Download Latest Release</button>
-
-    <script>
-        var REPO = "rebelonion/Dantotsu";
-        var API_URL = "https://api.github.com/repos/" + REPO + "/releases/latest";
-
-        function downloadFile(url, filename) {
-            var link = document.createElement('a');
-            link.href = url;
-            link.download = filename;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-
-        function downloadLatestRelease() {
-            fetch(API_URL)
-                .then(response => response.json())
-                .then(data => {
-                    var asset = data.assets.find(asset => asset.name === 'app-release.apk');
-                    if (asset) {
-                        downloadFile(asset.browser_download_url, 'app-release.apk');
-                    } else {
-                        console.error('Asset app-release.apk not found in the latest release');
-                    }
-                })
-                .catch(console.error);
-        }
-
-        document.getElementById('downloadButton').addEventListener('click', downloadLatestRelease);
-    </script>
-</body>
-</html>
-
-
-</div>
+          </div>
 
           </div>
    
@@ -374,4 +338,4 @@
 
 </script>
 
-            </html>
+ </html>
