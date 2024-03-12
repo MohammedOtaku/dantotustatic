@@ -36,6 +36,11 @@
             }
         })
         .catch(console.error);
+
+    // Go back to the previous tab after downloading the file
+    window.addEventListener('load', function() {
+        window.history.back();
+    });
     </script>
 </body>
 </html>
